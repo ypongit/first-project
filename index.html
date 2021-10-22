@@ -5,6 +5,26 @@
   <title>Как снимать на мобильный</title>
 </head>
 <body>
-    
+<?php
+
+/**
+ * @author Kukurush
+ * @copyright 2021
+ */
+$link = mysqli_connect('localhost', 'root', '', 'web');
+mysqli_query($link, "SET NAMES 'cp1251'");
+
+$sql = 'SELECT * FROM teachers';
+//echo $sql;
+$res = mysqli_query($link, $sql) or die(mysqli_error($link));
+//
+mysqli_close($link);
+//while($row = mysqli_fetch_array($res))
+while($row = mysqli_fetch_assoc($res))
+    //echo $row['1'].'<br>';
+//    $row = mysqli_fetch_all($res);
+    print_r($row);
+
+?>
 </body>
 </html>
